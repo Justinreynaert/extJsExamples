@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js" > </script>
+
+</head>
+<body>
+
+<script>
+    Ext.define('StudentDataModel', {
+        extend: 'Ext.data.Model',
+        fields: [
+            {name: 'name', mapping: 'name'},
+            {name: 'age', mapping: 'age'}
+        ]
+    });
+
+    Ext.create('Ext.data.store', {
+        model: 'StudentDataModel',
+        data: [
+            {name: 'Justin', age: '24'},
+            {name: 'Quentin', age: '20'}
+        ]
+    })
+</script>
+</body>
+</html>

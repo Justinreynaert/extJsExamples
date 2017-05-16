@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>font-awesome</title>
+    <link rel="stylesheet" href="../vendor/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.2.0/classic/theme-crisp/resources/theme-crisp-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            Ext.create('Ext.container.Container', {
+                renderTo : 'panel',
+                layout : 'hbox',
+                items : [{
+                    xtype	: 'button',
+                    iconCls	: 'fa fa-hand-o-right',
+                    text	: 'Browse Fil1e'
+                },{
+                    xtype	: 'button',
+                    iconCls	: 'fa fa-file',
+                    text	: 'Browse File3'
+                },{
+                    xtype	: 'button',
+                    iconCls	: 'fa fa-home',
+                    text	: 'Browse File4'
+                },{
+                    xtype	: 'button',
+                    iconCls	: 'fa fa-folder',
+                    text	: 'Browse File5'
+                }]
+            });
+        });
+    </script>
+</head>
+<body>
+<div id = "panel" > </div>
+</body>
+</html>

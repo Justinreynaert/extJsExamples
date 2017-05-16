@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anchor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            var anchor = Ext.create('Ext.container.Container', {
+                layout : 'anchor' ,
+                items : [{
+                    title : 'Panel 1',
+                    html : 'panel 1',
+                    height : 100,
+                    anchor : '75%'
+                },{
+                    title : 'Panel 2',
+                    html : 'panel 2',
+                    height : 100,
+                    anchor : '100%'
+                },{
+                    title : 'Panel 3',
+                    html : 'panel 3',
+                    height : 100,
+                    anchor : '-100'
+                },{
+                    title : 'Panel 4',
+                    html : 'panel 4',
+                    anchor : '-70, 500'
+                }]
+            });
+
+            Ext.create('Ext.container.Viewport', {
+                renderTo: Ext.getBody(),
+                items: [anchor]
+            })
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

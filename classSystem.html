@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js" > </script>
+
+</head>
+<body>
+
+<script>
+    Ext.define(firstApp.view.AppDetailsGrid, {
+        extend: 'Ext.grid.GridPanel',
+        id: 'appDetailsGrid',
+        store: 'AppDetailsGridStore',
+        renderTo: 'appDetailRenderDiv',
+        layout: 'fit',
+        columns: [{
+            text: 'App Name',
+            dataIndex: 'appName'
+        },{
+            text: 'ID',
+            dataIndex: 'appId'
+        },{
+            text: 'Extra Info',
+            dataIndex: 'Extra'
+        }
+        ]
+    })
+</script>
+</body>
+</html>

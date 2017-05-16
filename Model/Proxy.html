@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proxy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js" > </script>
+
+
+</head>
+<body>
+
+<div id="gridDiv"></div>
+
+
+<script>
+    Ext.onReady(function() {
+    Ext.define('PostsDataModel', {
+        extend: 'Ext.data.Model',
+        fields: [
+            {name: 'userId', mapping : 'userId'},
+            {name: 'id', mapping : 'id'},
+            {name: 'title', mapping : 'title'},
+            {name: 'body', mapping: 'body'}
+        ]
+    });
+
+    let postsStore = Ext.create('Ext.data.Store', {
+        model: 'PostsDataModel',
+        proxy: {
+            type: 'rest',
+            actionMethods: {
+                read: 'GET'
+            },
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            reader: {
+                type: 'jsonp',
+                root: 'data'
+            }
+        }
+    });
+
+
+    console.log(postsStore);
+
+        Ext.create('Ext.grid.Panel', {
+            id                : 'postsId',
+            store             : postsStore,
+            stripeRows        : true,
+            title             : 'Posts Grid', // Title for the grid
+            renderTo          :'gridDiv', // Div id where the grid has to be rendered
+            collapsible       : true, // property to collapse grid
+            enableColumnMove  :true, // property which alllows column to move to different position by dragging that column.
+            enableColumnResize:true, // property which allows to resize column run time.
+            columns           :
+                [{
+                    header: "User Id",
+                    dataIndex: 'userId',
+                    id : 'userId',
+                    flex:  1,  		 // property defines the amount of space this column is going to take in the grid container with respect to all.
+                    sortable: false, // property to sort grid column data.
+                    hideable: true  // property which allows column to be hidden run time on user request.
+                },{
+                    header: "Id",
+                    dataIndex: 'id',
+                    flex: .5,
+                    sortable: true,
+                    hideable: false // this column will not be available to be hidden.
+                },{
+                    header: "title",
+                    dataIndex: 'title',
+                    flex: .5,
+                    sortable: true,
+
+                },{
+                    header: "body",
+                    dataIndex: 'body',
+                    flex: .5,
+                    sortable: true,
+
+                }]
+        });
+});
+</script>
+</body>
+</html>
